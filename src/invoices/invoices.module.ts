@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { FraudService } from './fraud/fraud.service';
 
-@Module({})
+@Module({
+  providers: [FraudService],
+})
 export class InvoicesModule {}
