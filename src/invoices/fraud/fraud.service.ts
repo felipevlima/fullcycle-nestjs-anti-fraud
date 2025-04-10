@@ -98,7 +98,7 @@ export class FraudService {
       take: INVOICES_HISTORY_COUNT,
     });
 
-    if (previousInvoices.length) {
+    if (previousInvoices.length > 0) {
       const totalAmount = previousInvoices.reduce((acc, invoice) => {
         return acc + invoice.amount;
       }, 0);
