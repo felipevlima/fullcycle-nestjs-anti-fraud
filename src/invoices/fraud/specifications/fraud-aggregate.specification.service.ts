@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import {
   FraudDetectionResult,
   FraudSpecificationContext,
@@ -7,7 +7,10 @@ import {
 
 @Injectable()
 export class FraudAggregateSpecification implements IFraudSpecification {
-  constructor(private specifications: IFraudSpecification[]) {}
+  constructor(
+    @Inject('FRAUD_SPECIFICATIONS')
+    private specifications: IFraudSpecification[],
+  ) {}
 
   async detectFraud(
     context: FraudSpecificationContext,
